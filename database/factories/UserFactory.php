@@ -25,3 +25,17 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+
+$factory->define(App\NewsEntry::class, function (Faker $faker) {
+
+    $title = $faker->sentence;
+
+    return [
+        'title' => $title,
+        'slug' => Str::slug($title),
+        'description' => $faker->sentence(15),
+        'content' => implode(' ', $faker->paragraphs(2)),
+        'published' => true,
+        'published_at' => Carbon\Carbon::now(),
+    ];
+});

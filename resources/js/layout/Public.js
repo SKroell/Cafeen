@@ -6,7 +6,7 @@ import Navigation from '../components/navigation/index'
 import Footer from '../components/footer/index'
 
 const containerStyle = {
-	paddingTop: '3.5rem',
+	paddingTop: '7.5rem',
 }
 
 const displayName = 'Public'

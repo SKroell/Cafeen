@@ -45,7 +45,7 @@ class Navigation extends Component {
 
 	render() {
 		return (
-			<Navbar fixed="top" variant="light" expand="md">
+			<Navbar fixed="top" variant="light" expand="md" bg="light">
 				<div className="mx-auto d-sm-flex d-block flex-sm-nowrap">
 				<Navbar.Brand to="/">
 					<Navbar.Brand href="#home">
