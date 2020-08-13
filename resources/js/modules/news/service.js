@@ -22,6 +22,7 @@ export function newsArticleListRequest(params) {
 		Http.get(url)
 			.then((res) => {
 				dispatch(newsActions.list(transformResponse(res.data)))
+				console.log(transformResponse(res.data));
 			})
 			.catch((err) => {
 				// TODO: handle err

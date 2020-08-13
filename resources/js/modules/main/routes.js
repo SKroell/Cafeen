@@ -11,18 +11,18 @@ export default [
 		path: '/bliv-bartender',
 		exact: true,
 		auth: false,
-		component: lazy(() => import('./pages/bliv-bartender/index')),
+		component: lazy(() => import('./pages/info-page/index')),
 	},
 	{
 		path: '/frebar',
 		exact: true,
 		auth: false,
-		component: lazy(() => import('./pages/frebar/index')),
+		component: lazy(() => import('./pages/info-page/index')),
 	},
 	{
 		path: '/webcam',
 		exact: true,
 		auth: false,
-		component: lazy(() => import('./pages/webcam/index')),
+		component: lazy(() => import('./pages/info-page/index')),
 	},
 ]

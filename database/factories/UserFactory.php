@@ -2,7 +2,9 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\NewsEntry;
 use App\User;
+use Carbon\Carbon;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -36,6 +38,19 @@ $factory->define(App\NewsEntry::class, function (Faker $faker) {
         'description' => $faker->sentence(15),
         'content' => implode(' ', $faker->paragraphs(2)),
         'published' => true,
-        'published_at' => Carbon\Carbon::now(),
+        'published_at' => \Carbon\Carbon::now(),
+    ];
+});
+
+$factory->define(App\InfoPage::class, function (Faker $faker) {
+
+    $title = $faker->sentence;
+
+    return [
+        'title' => $title,
+        'slug' => Str::slug($title),
+        'content' => implode(' ', $faker->paragraphs(2)),
+        'published' => true,
+        'last_edit_at' => \Carbon\Carbon::now(),
     ];
 });

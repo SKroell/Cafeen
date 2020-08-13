@@ -31,4 +31,7 @@ Route::group(["prefix" => "{$api_version}"], function() {
     // register news routes
     Route::prefix('news')->group(base_path('routes/api/news.php'));
 
+    // register info page routes
+    Route::prefix('infopage')->group(base_path('routes/api/pages.php'));
+
 });
