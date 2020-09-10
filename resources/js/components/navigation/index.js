@@ -48,7 +48,7 @@ class Navigation extends Component {
 			<Navbar fixed="top" variant="light" expand="md" bg="light">
 				<div className="mx-auto d-sm-flex d-block flex-sm-nowrap">
 				<Navbar.Brand to="/">
-					<Navbar.Brand href="#home">
+					<Navbar.Brand href="/">
 						<img
 							alt=""
 							src="/img/logo.svg"
@@ -62,9 +62,6 @@ class Navigation extends Component {
 				{
 					this.props.isAuthenticated
 						? <PrivateHeader user={this.props.user}
-										 showNavigation={this.state.showNavigation}
-										 toggleDropdown={this.toggleDropdown}
-										 showDropdown={this.state.showDropdown}
 										 logout={this.logout} />
 						: <PublicHeader showNavigation={this.state.showNavigation} />
 				}

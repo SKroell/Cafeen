@@ -20,7 +20,9 @@ function Layout(props) {
 		}
 	}, [isAuthenticated])
 
-	if (isAuthenticated) {
+
+	const useInternalLayout = props.location.pathname.includes("internt");
+	if (isAuthenticated && useInternalLayout) {
 		return <PrivateLayout {...props}>{children}</PrivateLayout>
 	}
 	return <PublicLayout {...props}>{children}</PublicLayout>

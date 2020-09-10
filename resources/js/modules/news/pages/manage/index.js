@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import Entry from '../../modules/news/Entry'
+import Entry from '../../Entry'
 
-// components
-import Entries from './components/Entries'
+// import components
+import Page from './Page'
 
 const mapStateToProps = state => {
 	const {data, ...meta} = state.entries
@@ -11,6 +11,6 @@ const mapStateToProps = state => {
 		entries: data.map((entry) => new Entry(entry)),
 		meta: Object.assign({}, meta)
 	}
-};
+}
 
-export default connect(mapStateToProps)(Entries)
+export default connect(mapStateToProps)(Page)

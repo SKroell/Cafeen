@@ -6,7 +6,8 @@ const mapStateToProps = state => {
 	const {pages, ...meta} = state;
 	return {
 		content: new Content(pages),
-		meta: Object.assign({}, meta)
+		meta: Object.assign({}, meta),
+		isAuthenticated: state.auth.isAuthenticated,
 	}
 };
 

@@ -11,7 +11,6 @@ function transformResponse(params) {
 }
 
 export function newsArticleListRequest(params) {
-
 	let { pageNumber = 1, url = '/news' } = params
 
 	return dispatch => {
@@ -29,4 +28,12 @@ export function newsArticleListRequest(params) {
 				console.error(err.response)
 			})
 	}
+}
+
+export function newsArticleRemoveRequest(params) {
+	//TODO
+}
+
+export function newsArticleUpdateRequest(params) {
+	//TODO
 }

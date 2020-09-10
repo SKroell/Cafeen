@@ -8,6 +8,7 @@ class ContentComponent extends React.Component {
 	static propTypes = {
 		content: PropTypes.object.isRequired,
 		dispatch: PropTypes.func.isRequired,
+		isAuthenticated: PropTypes.bool.isRequired,
 	};
 
 	constructor(props) {
@@ -17,10 +18,17 @@ class ContentComponent extends React.Component {
 		}
 	}
 
+	/**
+	 * Handle admin changes to page.
+	 * TODO: API Call to save to DB
+	 */
 	handleChange = evt => {
 		console.log(evt)
 	};
 
+	/**
+	 * Render editable content page
+	 */
 	renderContent() {
 		return(
 			<React.Fragment>
@@ -29,8 +37,9 @@ class ContentComponent extends React.Component {
 						<Card.Title>{ this.props.content.title }</Card.Title>
 						<ContentEditable
 							html={this.props.content.content} // innerHTML of the editable div
-							disabled={false} // use true to disable edition
+							disabled={!this.props.isAuthenticated} // use true to disable edition
 							onBlur={(e)=>{console.log(e.currentTarget.innerHTML)}} // handle innerHTML change
+							onChange={()=> null} // We handle changes in onBlur to avoid unnecessary calls.
 						/>
 					</Card.Body>
 				</Card>

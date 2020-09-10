@@ -26,4 +26,5 @@ export default function Page({ dispatch }) {
 Page.displayName = 'InfoPage'
 Page.propTypes = {
 	dispatch: PropTypes.func.isRequired,
+	isAuthenticated: PropTypes.bool.isRequired,
 };

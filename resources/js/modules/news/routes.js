@@ -1,22 +1,22 @@
 import { lazy } from 'react'
 
 export default [
-	// {
-	// 	path: '/nyheder',
-	// 	exact: true,
-	// 	auth: true,
-	// 	component: lazy(() => import('./pages/list/index')),
-	// },
-	// {
-	// 	path: '/nyheder/create',
-	// 	exact: true,
-	// 	auth: true,
-	// 	component: lazy(() => import('./pages/add/index')),
-	// },
-	// {
-	// 	path: '/nyheder/:id/edit',
-	// 	exact: true,
-	// 	auth: true,
-	// 	component: lazy(() => import('./pages/edit/index')),
-	// },
+	{
+		path: '/internt/nyheder',
+		exact: true,
+		auth: true,
+		component: lazy(() => import('./pages/manage/index')),
+	},
+	{
+		path: '/internt/nyheder/opret',
+		exact: true,
+		auth: true,
+		component: lazy(() => import('./pages/create/index')),
+	},
+	{
+		path: '/internt/nyheder/:id/rediger',
+		exact: true,
+		auth: true,
+		component: lazy(() => import('./pages/edit/index')),
+	},
 ]
