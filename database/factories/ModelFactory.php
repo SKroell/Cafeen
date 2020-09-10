@@ -1,34 +1,33 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-
-use App\NewsEntry;
-use App\User;
-use Carbon\Carbon;
-use Faker\Generator as Faker;
-use Illuminate\Support\Str;
-
 /*
 |--------------------------------------------------------------------------
 | Model Factories
 |--------------------------------------------------------------------------
 |
-| This directory should contain each of the model factory definitions for
-| your application. Factories provide a convenient way to generate new
-| model instances for testing / seeding your application's database.
+| Here you may define all of your model factories. Model factories give
+| you a convenient way to create models for testing and seeding your
+| database. Just tell the factory how a default model should look.
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+use Illuminate\Support\Str;
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\User::class, function (Faker\Generator $faker) {
+    static $password;
+
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        'phone' => $faker->phoneNumber,
+        'about' => $faker->sentence(10),
+        'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => Str::random(10),
     ];
 });
 
-$factory->define(App\NewsEntry::class, function (Faker $faker) {
+$factory->define(App\NewsEntry::class, function (Faker\Generator $faker) {
 
     $title = $faker->sentence;
 
@@ -42,7 +41,7 @@ $factory->define(App\NewsEntry::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(App\InfoPage::class, function (Faker $faker) {
+$factory->define(App\InfoPage::class, function (Faker\Generator $faker) {
 
     $title = $faker->sentence;
 
