@@ -9,7 +9,7 @@ const PublicRoutes = ({ component: Component, isAuthenticated, ...rest }) => {
 			<Component {...props}/>
 		</Suspense>
 	}}/>
-}
+};
 
 PublicRoutes.propTypes = {
 	component: PropTypes.object.isRequired,

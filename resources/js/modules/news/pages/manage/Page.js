@@ -8,7 +8,7 @@ import { newsArticleListRequest, newsArticleUpdateRequest, newsArticleRemoveRequ
 import EntryRow from './components/EntryRow'
 import Pagination from './components/Pagination'
 import { Link } from 'react-router-dom'
-import {Container} from "react-bootstrap";
+import {Container, Col} from "react-bootstrap";
 
 class Page extends Component {
 	static displayName = 'NewsPage';
@@ -63,28 +63,27 @@ class Page extends Component {
 	}
 
 	render() {
-		return <main className="col-sm-9 mx-auto col-md-10 pt-3" role="main">
-			<Container>
-			<h1>Nyheder</h1>
-			<table className="table table-responsive table-striped">
-				<thead className="thead-inverse">
-				<tr>
-					<th>#</th>
-					<th>Titel</th>
-					<th>Beskrivelse</th>
-					<th>Oprettet</th>
-					<th>Ændret</th>
-					<th>Udgivet</th>
-					<th><Link to='/internt/nyheder/opret' className="btn btn-success">Opret</Link></th>
-				</tr>
-				</thead>
-				<tbody>
-				{ this.renderNews() }
-				</tbody>
-			</table>
-			<Pagination meta={this.props.meta} onChange={this.pageChange}/>
-			</Container>
-		</main>
+		return (
+			<Col lg={8} md={8} sm={12}>
+				<h3>Nyheder</h3>
+				<table className="table table-responsive table-striped">
+					<thead className="thead-inverse">
+					<tr>
+						<th>#</th>
+						<th>Titel</th>
+						<th>Beskrivelse</th>
+						<th>Oprettet</th>
+						<th>Ændret</th>
+						<th>Udgivet</th>
+						<th><Link to='/internt/nyheder/opret' className="btn btn-success">Opret</Link></th>
+					</tr>
+					</thead>
+					<tbody>
+					{ this.renderNews() }
+					</tbody>
+				</table>
+				<Pagination meta={this.props.meta} onChange={this.pageChange}/>
+			</Col>)
 	}
 }
 
